@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <title>About Us | GloGen Clinical Research Pvt Ltd</title>
+    <meta name="description" content="About Us | GloGen Clinical Research Pvt Ltd">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #10b981;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --background-light: #f8fafc;
+            --background-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scroll-header {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav {
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            padding: 0.5rem 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            list-style: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-link:hover {
+            background: var(--background-light);
+            color: var(--primary-color);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: 0.3s;
+        }
+
+
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+        }
+
+       
+
+        /* About Section */
+        .about-section {
+            padding: 6rem 0;
+            background: var(--background-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+            min-width: 180px;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 6rem 0;
+            background: var(--background-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Culture Section */
+        .culture-section {
+            padding: 6rem 0;
+            background: var(--background-white);
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .culture-image {
+            position: relative;
+        }
+
+        .culture-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 6rem 0;
+            background: var(--background-light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .team-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-position {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Why Choose Section */
+        .why-choose-section {
+            padding: 6rem 0;
+            background: var(--background-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--text-primary) 0%, #111827 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="b" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.05"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="100" cy="100" r="80" fill="url(%23b)"/><circle cx="900" cy="200" r="120" fill="url(%23b)"/><circle cx="300" cy="800" r="100" fill="url(%23b)"/></svg>');
+        }
+
+        .cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .close:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: var(--shadow-md);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.show-menu {
+                left: 0;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .about-grid,
+            .culture-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .values-grid,
+            .features-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-actions {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-img"><img src="glogenlogo.png" alt="GloGen Clinical Research" class="logo-img" style="
+                            margin-left: 10px;
+                        "></span>
+                    </a>
+                </div>
+
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="about-us.html" class="nav-link active">About Us</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="about-us.html" class="dropdown-link active">Overview</a></li>
+                                <li><a href="vision-mission.html" class="dropdown-link">Vision & Mission</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="babe.html" class="dropdown-link">BA/BE</a></li>
+                                <li><a href="pk-analysis.html" class="dropdown-link">PK Bioanalysis</a></li>
+                                <li><a href="biostatics.html" class="dropdown-link">Biostatistics & Data Management</a></li>
+                                <li><a href="clinical-trials.html" class="dropdown-link">Clinical Trial Services</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="infrastructure.html" class="nav-link">Infrastructure</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="career.html" class="nav-link">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="news.html" class="nav-link">News</a>
+                        </li>
+                    </ul>
+                    <a href="contactus.html" class="btn btn-primary" style="margin-right: 10px;">Get In Touch</a>
+                </div>
+
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    
+    
+    <section class="hero">
+        <div class="hero-background" style="background-image: url('assets/back.png');">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        About Us
+                        </h1>
+                    <p class="hero-description">
+                        <span class="text-gradient">Enhancing your <span class="text-gradient">research-driven progress</span><br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="image-container">
+                        <img src="assets/about-us/herosec.png" alt="Clinical Research Excellence" class="about-img">
+                        <div class="floating-card">
+                            <div class="card-icon">⭐</div>
+                            <h4>ELEVATING CLINICAL<br>EXCELLENCE</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left" data-aos-delay="200">
+                    <h2 class="section-title">
+                        Enhancing your research-driven progression
+                    </h2>
+                    <p class="about-text">
+                        GLOGEN, a global clinical research organization (CRO), enhances the customer's portfolio through its clinical research capabilities combined with comprehensive drug safety and regulatory advisory services. Our primary objective is to devise effective strategies and impactful solutions to ensure the triumph of our clients' clinical initiatives.
+                    </p>
+                    <p class="about-text">
+                        GLOGEN aspires to be a dependable ally, guiding our clients towards success. We are dedicated to forging reliable partnerships by offering scientific proficiency to accelerate product launches through clinical development. At GLOGEN, we hold a strong belief in our mission, collaborating with our clients to enrich Healthcare Management.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Our <span class="text-gradient">Values</span></h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="value-title">Teamwork</h3>
+                    <p class="value-description">
+                        We aim to offer and accept constructive criticism. We foster collaboration and openness, appreciating the varied skills and viewpoints within our team. Acknowledging errors, we embrace gap-analysis and continuously strive for enhancement.
+                    </p>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-description">
+                        We persistently pursue optimal results for all stakeholders within GloGen. We maintain lofty standards for ourselves and our peers, conducting ourselves with utmost integrity. Collaborating with top-tier individuals, we endeavor to achieve our objectives.
+                    </p>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="value-title">Agility</h3>
+                    <p class="value-description">
+                        At GloGen, we represent agility in our approach to clinical research. We swiftly adapt to evolving regulatory landscapes and scientific advancements, ensuring rapid and precise responses to emerging opportunities and challenges.
+                    </p>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="value-title">Leadership</h3>
+                    <p class="value-description">
+                        We identify tasks that require attention and assume accountability for their completion. We personally commit to fulfilling GloGen's objectives. We innovate creatively and aren't confined by past practices.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section class="culture-section">
+        <div class="container">
+            <div class="culture-grid">
+                <div class="culture-content" data-aos="fade-right" data-aos-delay="200">
+                    <h2 class="section-title">Culture</h2>
+                    <p class="about-text">
+                        GloGen demonstrates a keen curiosity in the culture that develops among our employees. GloGen fosters a warm and supportive environment conducive to employee well-being and development. We prefer to view GloGen not merely as an organization, but rather as an extended family for each member, where mutual growth is encouraged.
+                    </p>
+                    <p class="about-text">
+                        Our work styles and methods are infused with our vision and values. The experienced and knowledgeable team at GloGen is committed to coaching, mentoring, and continual learning, never hesitating to support one another's advancement.
+                    </p>
+                </div>
+                <div class="culture-image" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="assets/about-us/team.png" alt="Company Culture" class="culture-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Our <span class="text-gradient">Team</span></h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100" onclick="openModal('modal1')">
+                    <img src="assets/about-us/rambabu.jpg" alt="Rambabu Maddela" class="team-image">
+                    <div class="team-info">
+                        <h3 class="team-name">Rambabu Maddela</h3>
+                        <p class="team-position">Founder and Managing Director</p>
+                    </div>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200" onclick="openModal('modal2')">
+                    <img src="assets/about-us/nagesh.jpg" alt="M. Nagesh" class="team-image">
+                    <div class="team-info">
+                        <h3 class="team-name">M. Nagesh</h3>
+                        <p class="team-position">Head-Operations</p>
+                    </div>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300" onclick="openModal('modal3')">
+                    <img src="assets/about-us/ramanjaneya.jpg" alt="N. Ramanjaneya Reddy" class="team-image">
+                    <div class="team-info">
+                        <h3 class="team-name">N. Ramanjaneya Reddy</h3>
+                        <p class="team-position">Head-Quality Assurance</p>
+                    </div>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="400" onclick="openModal('modal4')">
+                    <img src="assets/about-us/sreedhar.jpg" alt="Sreedhar Reddy.T" class="team-image">
+                    <div class="team-info">
+                        <h3 class="team-name">Sreedhar Reddy.T</h3>
+                        <p class="team-position">Head-Clinical Operations</p>
+                    </div>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="500" onclick="openModal('modal5')">
+                    <img src="assets/about-us/adinarayana.jpg" alt="K.Adinarayana" class="team-image">
+                    <div class="team-info">
+                        <h3 class="team-name">K.Adinarayana</h3>
+                        <p class="team-position">Head-Bioanalytical</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Why Choose<br><span class="text-gradient">GloGen Clinical Research?</span></h2>
+                <p class="section-description">
+                    At GloGen, we are not just conducting clinical research; we are pioneering innovations to transform patient care around the globe. Here is why partnering with us sets you on the path to groundbreaking discoveries and unparalleled care.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title">Expertise</h3>
+                    <p class="feature-description">GloGen aids clients in efficient strategy planning.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Flexibility</h3>
+                    <p class="feature-description">Customizable clinical research options for all stages.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="feature-title">Partnership</h3>
+                    <p class="feature-description">Efficient tactics, powerful resolutions, dependable ally, achievement.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Honesty</h3>
+                    <p class="feature-description">We conduct our research with the utmost honesty.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="fade-in" data-aos-delay="100">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Reach Out to Us for Clinical Excellence</h2>
+                <p class="cta-description">
+                    Connect with us to embark on a journey towards clinical excellence and transformative healthcare solutions.
+                </p>
+                <div class="cta-actions">
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <a href="contactus.html" class="btn btn-primary btn-large">
+                        CONTACT US <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">GloGen Clinical Research</div>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="infrastructure.html">Infrastructure</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                        <li><a href="babe.html">Be a Clinical Trial Participant</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="babe.html">BA/BE</a></li>
+                        <li><a href="pk-analysis.html">PK Bioanalysis</a></li>
+                        <li><a href="biostatics.html">Biostatistics & Data Management</a></li>
+                        <li><a href="clinical-trials.html">Clinical Trial Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <div class="contact-info">
+                        <p>5th Floor, The Chennai Silks Building,<br>
+                            Door No. 11-6-72/A&B, Y Junction, Kukatpally,<br>
+                            Hyderabad, Telangana 500072</p>
+                        <p><strong>Phone:</strong> +91 94414 30127, 040-29351774, 040-29321803</p>
+                        <p><strong>Email:</strong> info@glogencro.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 GloGen Clinical Research Pvt Ltd. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Team Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h2>Rambabu Maddela</h2>
+            <p><strong>Founder and Managing Director</strong></p>
+            <p>Detailed information about Rambabu Maddela's background, experience, and role at GloGen Clinical Research.</p>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <h2>M. Nagesh</h2>
+            <p><strong>Head-Operations</strong></p>
+            <p>Detailed information about M. Nagesh's background, experience, and role at GloGen Clinical Research.</p>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <h2>N. Ramanjaneya Reddy</h2>
+            <p><strong>Head-Quality Assurance</strong></p>
+            <p>Detailed information about N. Ramanjaneya Reddy's background, experience, and role at GloGen Clinical Research.</p>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal4')">&times;</span>
+            <h2>Sreedhar Reddy.T</h2>
+            <p><strong>Head-Clinical Operations</strong></p>
+            <p>Detailed information about Sreedhar Reddy.T's background, experience, and role at GloGen Clinical Research.</p>
+        </div>
+    </div>
+
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal5')">&times;</span>
+            <h2>K.Adinarayana</h2>
+            <p><strong>Head-Bioanalytical</strong></p>
+            <p>Detailed information about K.Adinarayana's background, experience, and role at GloGen Clinical Research.</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('show-menu');
+            });
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY >= 100) {
+                header.classList.add('scroll-header');
+            } else {
+                header.classList.remove('scroll-header');
+            }
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <title>Clinical Trial Services | GloGen Clinical Research Pvt Ltd</title>
+    <meta name="description" content="Clinical Trial Services - GloGen Clinical Research">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Keep original nav and footer styles */
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+        }
+
+        /* Modern styles for the rest of the page */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Modern Hero Section */
+
+
+
+        .hero-text {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .text-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Modern About Section */
+        .about-section {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            min-width: 180px;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .about-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #6b7280;
+            font-size: 1rem;
+        }
+
+        .about-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Modern Services Section */
+        .services-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #f1f5f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+            margin-bottom: 1.5rem;
+            background: #f6f9fb;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 0;
+            /* Remove any padding */
+            margin: 0;
+            /* Remove margin */
+            max-width: none;
+            /* Override default limits */
+            max-height: none;
+        }
+
+
+
+       
+
+
+
+
+
+        @media (max-width: 768px) {
+            .service-image img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .service-image {
+                min-height: 80px;
+            }
+        }
+
+
+        .service-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        /* Modern Features Section */
+        .why-choose-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #f1f5f9;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+           
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon img {
+            width: 80px;
+    height: 80px;
+    object-fit: contain;   /* Ensures images shrink or grow but keep aspect ratio */
+    display: block;
+    border-radius: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0f1112;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Modern CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="b" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.05"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="100" cy="100" r="80" fill="url(%23b)"/><circle cx="900" cy="200" r="120" fill="url(%23b)"/><circle cx="300" cy="800" r="100" fill="url(%23b)"/></svg>');
+        }
+
+        .cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-actions {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-img"><img src="glogenlogo.png" alt="GloGen Clinical Research" class="logo-img" style="
+                            margin-left: 10px;
+                        "></span>
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="about-us.html" class="nav-link">About Us</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="about-us.html" class="dropdown-link">Overview</a></li>
+                                <li><a href="vision-mission.html" class="dropdown-link">Vision & Mission</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="babe.html" class="dropdown-link">BA/BE</a></li>
+                                <li><a href="pk-analysis.html" class="dropdown-link">PK Bioanalysis</a></li>
+                                <li><a href="biostatics.html" class="dropdown-link">Biostatistics & Data Management</a></li>
+                                <li><a href="clinical-trials.html" class="dropdown-link active">Clinical Trial Services</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="infrastructure.html" class="nav-link">Infrastructure</a></li>
+                        <li class="nav-item"><a href="career.html" class="nav-link">Careers</a></li>
+                        <li class="nav-item"><a href="news.html" class="nav-link">News</a></li>
+                    </ul>
+                    <a href="contactus.html" class="btn btn-primary" style="margin-right:10px;">Get In Touch</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" data-aos="fade-in" data-aos-duration="1200">
+        <div class="hero-content"
+            style="background-image: url('assets/back2.png'); background-repeat: no-repeat; background-size:cover;">
+            <div class="container">
+                <div class="hero-text" data-aos="fade-up" data-aos-delay="200">
+                    <h1 class="hero-title">
+                        Clinical Trial Services<br>
+                        <span class="text-gradient">Supporting clinical program at any phase or every phase</span>
+                    </h1>
+                    <p class="hero-description">
+                        At GloGen, we redefine the landscape of Clinical Trial Services by seamlessly integrating
+                        cutting-edge research methodologies with unwavering dedication to global health advancement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="image-container">
+                        <img src="assets/clinical-trial.png" alt="Clinical Research Excellence" class="about-img">
+                        <div class="floating-card">
+                            <div class="card-icon">🌍</div>
+                            <h4>Global Health Advancement</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left" data-aos-delay="200">
+                    <h2 class="section-title">
+                        Revolutionizing Healthcare Outcomes
+                    </h2>
+                    <p class="about-text">
+                        Our team is more than just a research entity; we are a collective force of passionate
+                        individuals driven by a singular goal: to revolutionize healthcare outcomes worldwide. With a
+                        commitment to excellence and innovation, we navigate the complexities of clinical trials with
+                        precision, ensuring efficient processes and delivering impactful results.
+                    </p>
+                    <p class="about-text">
+                        Our approach at GloGen transcends the conventional boundaries of clinical research, forging a
+                        dynamic synergy among diverse talents and expertise. As a cohesive team, we unite under the
+                        banner of unwavering dedication to enhance global health outcomes. With a profound understanding
+                        of the intricacies involved in clinical trials, we navigate every challenge with precision and
+                        ingenuity, ensuring that our efforts contribute meaningfully to the advancement of medical
+                        science.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Comprehensive <span class="text-gradient">Solutions</span></h2>
+                <p class="section-description">
+                    Our clinical trial services are designed to support your program at any phase, ensuring quality,
+                    efficiency, and innovation throughout the drug development continuum.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-image">
+                        <img src="assets/c-trial2.png" alt="Clinical Site Management">
+                        
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Clinical Site Management</h3>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-image">
+                        <img src="assets/clinicaltrials/c-monitoring.png" alt="Clinical Monitoring">
+                        
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Clinical Monitoring</h3>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-image">
+                        <img src="assets/clinicaltrials/medical-writing.png" alt="Medical Writing">
+                        
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Medical Writing</h3>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-image">
+                        <img src="assets/clinicaltrials/proj-mgmt.png" alt="Clinical Project Management">
+                        
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Clinical Project Management</h3>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-image">
+                        <img src="assets/clinicaltrials/stats.png" alt="Statistical Analysis Services">
+                        
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Statistical Analysis Services</h3>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-image">
+                        <img src="assets/clinicaltrials/c-data-mgmt.png" alt="Clinical Data Management">
+                        
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Clinical Data Management</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities & Team Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="image-container">
+                        <img src="assets/clinicaltrials/facilities.png" alt="Facilities & Team" class="about-img">
+                        <div class="floating-card">
+                            <div class="card-icon">🏥</div>
+                            <h4>Facilities & Team</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left" data-aos-delay="200">
+                    <h2 class="section-title">Optimizing Clinical Trials</h2>
+                    <ul class="about-list">
+                        <li>Comprehensive clinical trial services offered.</li>
+                        <li>Experienced and dedicated team.</li>
+                        <li>Commitment to enhancing global health outcomes.</li>
+                        <li>Transcending conventional research roles.</li>
+                        <li>Cohesive team dynamics.</li>
+                        <li>Passionate individuals.</li>
+                        <li>Focus on quality and efficacy in trial facilitation.</li>
+                        <li>Tailored services to meet specific trial needs.</li>
+                        <li>Cutting-edge facilities for trial execution.</li>
+                        <li>Continuous improvement and innovation.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiators Section -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Our <span class="text-gradient">Differentiators</span></h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <img src="assets/diffrenciators/challenges.png" alt="Know the challenges">
+                    </div>
+                    <h3 class="feature-title">Know the challenges</h3>
+                    <p class="feature-description">Deep understanding of clinical trial complexities and solutions.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <img src="assets/diffrenciators/agility.png" alt="Agility and Responsive">
+                    </div>
+                    <h3 class="feature-title">Agility and Responsive</h3>
+                    <p class="feature-description">Quick adaptation and responsive service for every client need.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <img src="assets/diffrenciators/team.png" alt="Best people to the trials">
+                    </div>
+                    <h3 class="feature-title">Best people to the trials</h3>
+                    <p class="feature-description">Our team brings expertise and dedication to every project.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <img src="assets/diffrenciators/business-approach.png" alt="Flexible in business approach">
+                    </div>
+                    <h3 class="feature-title">Flexible in business approach</h3>
+                    <p class="feature-description">Tailored solutions to fit your unique clinical trial requirements.
+                    </p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <img src="assets/diffrenciators/tech-integration.png" alt="Technology Integration">
+                    </div>
+                    <h3 class="feature-title">Technology Integration</h3>
+                    <p class="feature-description">Leveraging technology for efficient and accurate trial execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="fade-in" data-aos-delay="100"
+        style="background-image: url('assets/back2.png'); background-repeat: no-repeat; background-size: cover;">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Reach Out to Us for Clinical Excellence</h2>
+                <p class="cta-description">
+                    Connect with us to embark on a journey towards clinical excellence and transformative healthcare
+                    solutions.
+                </p>
+                <div class="cta-actions">
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <a href="contactus.html" class="btn btn-primary btn-large">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <span class="logo-text">GloGen</span>
+                        <span class="logo-subtitle">Clinical Research</span>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="infrastructure.html">Infrastructure</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                        <li><a href="babe.html">Be a Clinical Trial Participant</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="babe.html">BA/BE</a></li>
+                        <li><a href="pk-analysis.html">PK Bioanalysis</a></li>
+                        <li><a href="biostatics.html">Biostatistics & Data Management</a></li>
+                        <li><a href="clinical-trials.html">Clinical Trial Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <div class="contact-info">
+                        <p>5th Floor, The Chennai Silks Building,<br>
+                            Door No. 11-6-72/A&B, Y Junction, Kukatpally,<br>
+                            Hyderabad, Telangana 500072</p>
+                        <p><strong>Phone:</strong> +91 94414 30127, 040-29351774, 040-29321803</p>
+                        <p><strong>Email:</strong> info@glogencro.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 GloGen Clinical Research Pvt Ltd. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('show-menu');
+            });
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY >= 100) {
+                header.classList.add('scroll-header');
+            } else {
+                header.classList.remove('scroll-header');
+            }
+        });
+    </script>
+</body>
+
+</html>

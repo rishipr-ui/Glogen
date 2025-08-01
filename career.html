@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <title>Careers | GloGen Clinical Research Pvt Ltd</title>
+    <meta name="description" content="Careers | GloGen Clinical Research Pvt Ltd">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #05257e;
+            --accent-color: #4701ea;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --background-light: #f8fafc;
+            --background-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Styles - Same as About Us */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scroll-header {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav {
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-link {
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            padding: 0.5rem 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            list-style: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-link:hover {
+            background: var(--background-light);
+            color: var(--primary-color);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+        }
+
+        .breadcrumb-separator {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+
+        /* Life at GloGen Section */
+        .life-section {
+            padding: 8rem 0;
+            background: var(--background-white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4rem;
+        }
+
+        .life-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .life-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            height: 300px;
+        }
+
+        .life-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .life-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .life-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 2rem;
+            color: white;
+        }
+
+        .life-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .life-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .life-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .life-text-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .life-text-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .life-text-card.secondary {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        .life-text-card.accent {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+        }
+
+        /* Jobs Section */
+        .jobs-section {
+            padding: 6rem 0;
+            background: var(--background-light);
+        }
+
+        .jobs-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .job-item {
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .job-item:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .job-header {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .job-header:hover {
+            background: var(--background-light);
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .job-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .job-location,
+        .job-experience {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .job-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--primary-color);
+        }
+
+        .job-toggle {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .job-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .job-content.active {
+            max-height: 1000px;
+        }
+
+        .job-details {
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .job-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .job-section {
+            margin-bottom: 2rem;
+        }
+
+        .job-section h4 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .job-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-section li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .job-section li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .apply-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .apply-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+        }
+
+        .modal-header {
+            padding: 1.5rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-control[type="file"] {
+            padding: 0.5rem;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--text-primary) 0%, #111827 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="b" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.05"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="100" cy="100" r="80" fill="url(%23b)"/><circle cx="900" cy="200" r="120" fill="url(%23b)"/><circle cx="300" cy="800" r="100" fill="url(%23b)"/></svg>');
+        }
+
+        .cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-description {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer - Same as About Us */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: var(--shadow-md);
+                padding: 2rem 0;
+                height: calc(100vh - 70px);
+                overflow-y: auto;
+            }
+
+            .nav-menu.show-menu {
+                left: 0;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .life-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .life-grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .life-grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .job-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-actions {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header - Same as About Us -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-img"><img src="glogenlogo.png" alt="GloGen Clinical Research" class="logo-img" style="
+                            margin-left: 10px;
+                        "></span>
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="about-us.html" class="nav-link">About Us</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="about-us.html" class="dropdown-link">Overview</a></li>
+                                <li><a href="vision-mission.html" class="dropdown-link">Vision & Mission</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="babe.html" class="dropdown-link">BA/BE</a></li>
+                                <li><a href="#" class="dropdown-link">PK Bioanalysis</a></li>
+                                <li><a href="#" class="dropdown-link">Biostatistics & Data Management</a></li>
+                                <li><a href="clinical-trials.html" class="dropdown-link">Clinical Trial Services</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="infrastructure.html" class="nav-link">Infrastructure</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="career.html" class="nav-link active">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="news.html" class="nav-link">News</a>
+                        </li>
+                    </ul>
+                    <a href="contactus.html" class="btn btn-primary" style="margin-right: 10px;">Get In Touch</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background" style="background-image: url('assets/back.png');">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="container">
+                <div class="breadcrumb" data-aos="fade-up" data-aos-delay="100">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span>Careers</span>
+                </div>
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="text-gradient">Join us for inclusive growth</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Life at GloGen Section -->
+    <section class="life-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Life at GloGen</h2>
+
+            <div class="life-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="life-item">
+                    <img src="assets/career/team1.png" alt="Team Culture" class="life-img">
+                    <div class="life-overlay">
+                        <div class="life-text">We embrace ambitious thinking.</div>
+                    </div>
+                </div>
+                <div class="life-text-card">
+                    We are visionaries with a strategy.
+                </div>
+                <div class="life-item">
+                    <img src="assets/career/team2.png" alt="Innovation" class="life-img">
+                    <div class="life-overlay">
+                        <div class="life-text">Innovation drives us forward.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="life-grid-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="life-item">
+                    <img src="assets/career/team3.png" alt="Collaboration" class="life-img">
+                    <div class="life-overlay">
+                        <div class="life-text">Collaboration creates excellence.</div>
+                    </div>
+                </div>
+                <div class="life-item">
+                    <img src="assets/career/team4.png" alt="Growth" class="life-img">
+                    <div class="life-overlay">
+                        <div class="life-text">Growth through dedication.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="life-grid-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="life-text-card secondary">
+                    We take pleasure in satisfying our customers.
+                </div>
+                <div class="life-item">
+                    <img src="assets/career/team5.png" alt="Excellence" class="life-img">
+                    <div class="life-overlay">
+                        <div class="life-text">Excellence in every detail.</div>
+                    </div>
+                </div>
+                <div class="life-text-card accent">
+                    Building the future of clinical research.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Open Positions</h2>
+
+            <div class="jobs-container">
+                <!-- Job 1 -->
+                <div class="job-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="job-header" onclick="toggleJob(1)">
+                        <div>
+                            <h3 class="job-title">Principal Investigator-Clinical</h3>
+                            <div class="job-meta">
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt job-icon"></i>
+                                    <span>Hyderabad</span>
+                                </div>
+                                <div class="job-experience">
+                                    <i class="fas fa-briefcase job-icon"></i>
+                                    <span>3+ Years</span>
+                                </div>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down job-toggle" id="toggle-1"></i>
+                    </div>
+                    <div class="job-content" id="content-1">
+                        <div class="job-details">
+                            <p class="job-description">
+                                The Principal Investigator (PI) in Clinical Research is responsible for the overall
+                                conduct of clinical trials, ensuring the integrity of the study, adherence to regulatory
+                                requirements, and the safety and well-being of participants.
+                            </p>
+                            <div class="job-section">
+                                <h4>Key Responsibilities:</h4>
+                                <ul>
+                                    <li>Develop and refine clinical study protocols</li>
+                                    <li>Ensure study design aligns with regulatory guidelines</li>
+                                    <li>Oversee the ethical conduct of clinical trials</li>
+                                    <li>Lead multidisciplinary teams in executing clinical trials</li>
+                                    <li>Manage study budgets and timelines</li>
+                                    <li>Maintain compliance with Good Clinical Practice (GCP)</li>
+                                </ul>
+                            </div>
+                            <div class="job-section">
+                                <h4>Qualifications:</h4>
+                                <ul>
+                                    <li>MD, DO, PhD, or equivalent in a relevant field</li>
+                                    <li>Extensive experience in clinical research and trial management</li>
+                                    <li>In-depth knowledge of GCP and regulatory requirements</li>
+                                    <li>Strong leadership and team management skills</li>
+                                    <li>Excellent communication and interpersonal abilities</li>
+                                </ul>
+                            </div>
+                            <button class="apply-btn" onclick="openModal('Principal Investigator-Clinical')">
+                                Apply Now <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="job-header" onclick="toggleJob(2)">
+                        <div>
+                            <h3 class="job-title">Project Coordinator-Clinical</h3>
+                            <div class="job-meta">
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt job-icon"></i>
+                                    <span>Hyderabad</span>
+                                </div>
+                                <div class="job-experience">
+                                    <i class="fas fa-briefcase job-icon"></i>
+                                    <span>3+ Years</span>
+                                </div>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down job-toggle" id="toggle-2"></i>
+                    </div>
+                    <div class="job-content" id="content-2">
+                        <div class="job-details">
+                            <p class="job-description">
+                                Our growing company is seeking to hire a project coordinator who will be in charge of
+                                assisting our project managers in organizing our ongoing projects.
+                            </p>
+                            <div class="job-section">
+                                <h4>Responsibilities:</h4>
+                                <ul>
+                                    <li>Maintaining and monitoring project plans and schedules</li>
+                                    <li>Organizing and participating in stakeholder meetings</li>
+                                    <li>Documenting important actions and decisions</li>
+                                    <li>Preparing presentation materials for meetings</li>
+                                    <li>Ensuring project deadlines are met</li>
+                                </ul>
+                            </div>
+                            <button class="apply-btn" onclick="openModal('Project Coordinator-Clinical')">
+                                Apply Now <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="job-header" onclick="toggleJob(3)">
+                        <div>
+                            <h3 class="job-title">Staff Nurse-Clinical</h3>
+                            <div class="job-meta">
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt job-icon"></i>
+                                    <span>Hyderabad</span>
+                                </div>
+                                <div class="job-experience">
+                                    <i class="fas fa-briefcase job-icon"></i>
+                                    <span>3+ Years</span>
+                                </div>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down job-toggle" id="toggle-3"></i>
+                    </div>
+                    <div class="job-content" id="content-3">
+                        <div class="job-details">
+                            <p class="job-description">
+                                We are looking to employ a qualified and professional staff nurse to provide primary
+                                healthcare within our organization.
+                            </p>
+                            <div class="job-section">
+                                <h4>Responsibilities:</h4>
+                                <ul>
+                                    <li>Provide high-quality patient care</li>
+                                    <li>Assist with continuous development of staff</li>
+                                    <li>Identify hazards in the workplace</li>
+                                    <li>Treat emergency injuries</li>
+                                    <li>Develop programs to maintain health and safety</li>
+                                </ul>
+                            </div>
+                            <button class="apply-btn" onclick="openModal('Staff Nurse-Clinical')">
+                                Apply Now <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="job-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="job-header" onclick="toggleJob(4)">
+                        <div>
+                            <h3 class="job-title">Medical Writer</h3>
+                            <div class="job-meta">
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt job-icon"></i>
+                                    <span>Hyderabad</span>
+                                </div>
+                                <div class="job-experience">
+                                    <i class="fas fa-briefcase job-icon"></i>
+                                    <span>3+ Years</span>
+                                </div>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down job-toggle" id="toggle-4"></i>
+                    </div>
+                    <div class="job-content" id="content-4">
+                        <div class="job-details">
+                            <p class="job-description">
+                                Graduate/Post Graduate/Doctorate degree in Life Sciences/Pharmacy/Medical Sciences or
+                                equivalent degree. Fluency in English required.
+                            </p>
+                            <div class="job-section">
+                                <h4>Job Description:</h4>
+                                <ul>
+                                    <li>Overall management of MW activities</li>
+                                    <li>Write and review protocols, ICFs and Clinical study reports</li>
+                                    <li>Interact cross-functionally with other departments</li>
+                                    <li>Ensure compliance with research policies and SOPs</li>
+                                    <li>Represent company in discussions with sponsors</li>
+                                </ul>
+                            </div>
+                            <button class="apply-btn" onclick="openModal('Medical Writer')">
+                                Apply Now <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 5 -->
+                <div class="job-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="job-header" onclick="toggleJob(5)">
+                        <div>
+                            <h3 class="job-title">Project Manager</h3>
+                            <div class="job-meta">
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt job-icon"></i>
+                                    <span>Hyderabad</span>
+                                </div>
+                                <div class="job-experience">
+                                    <i class="fas fa-briefcase job-icon"></i>
+                                    <span>3+ Years</span>
+                                </div>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down job-toggle" id="toggle-5"></i>
+                    </div>
+                    <div class="job-content" id="content-5">
+                        <div class="job-details">
+                            <p class="job-description">
+                                We are looking for a project manager to be responsible for handling our company's
+                                ongoing projects. You will work closely with team members to ensure all requirements are
+                                met.
+                            </p>
+                            <div class="job-section">
+                                <h4>Responsibilities:</h4>
+                                <ul>
+                                    <li>Coordinating with cross-discipline team members</li>
+                                    <li>Meeting with project team members to resolve issues</li>
+                                    <li>Submitting project deliverables</li>
+                                    <li>Preparing status reports</li>
+                                    <li>Establishing effective project communication plans</li>
+                                </ul>
+                            </div>
+                            <button class="apply-btn" onclick="openModal('Project Manager')">
+                                Apply Now <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="job-header" onclick="toggleJob(6)">
+                        <div>
+                            <h3 class="job-title">Phlebotomist</h3>
+                            <div class="job-meta">
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt job-icon"></i>
+                                    <span>Hyderabad</span>
+                                </div>
+                                <div class="job-experience">
+                                    <i class="fas fa-briefcase job-icon"></i>
+                                    <span>1+ Years</span>
+                                </div>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down job-toggle" id="toggle-6"></i>
+                    </div>
+                    <div class="job-content" id="content-6">
+                        <div class="job-details">
+                            <p class="job-description">
+                                We are looking for a skilled Phlebotomist to join our clinical research team. The role
+                                involves collecting blood samples, handling specimens, and ensuring accurate labeling
+                                and documentation.
+                            </p>
+                            <div class="job-section">
+                                <h4>Responsibilities:</h4>
+                                <ul>
+                                    <li>Draw blood using proper techniques and equipment.</li>
+                                    <li>Label and process samples correctly.</li>
+                                    <li>Ensure sample integrity during transport and storage.</li>
+                                    <li>Maintain cleanliness and safety standards.</li>
+                                    <li>Support study coordinators in participant management.</li>
+                                </ul>
+                            </div>
+                            <div class="job-section">
+                                <h4>Requirements:</h4>
+                                <ul>
+                                    <li>Certified Phlebotomist or Lab Technician.</li>
+                                    <li>Minimum 1 year of experience in phlebotomy.</li>
+                                    <li>Attention to detail and hygiene.</li>
+                                    <li>Comfortable working with research participants.</li>
+                                </ul>
+                            </div>
+                            <button class="apply-btn" onclick="openModal('Phlebotomist')">
+                                Apply Now <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job-item" data-aos="fade-up" data-aos-delay="400">
+    <div class="job-header" onclick="toggleJob(7)">
+        <div>
+            <h3 class="job-title">Clinical Research Coordinator (CRC)</h3>
+            <div class="job-meta">
+                <div class="job-location">
+                    <i class="fas fa-map-marker-alt job-icon"></i>
+                    <span>Hyderabad</span>
+                </div>
+                <div class="job-experience">
+                    <i class="fas fa-briefcase job-icon"></i>
+                    <span>2+ Years</span>
+                </div>
+            </div>
+        </div>
+        <i class="fas fa-chevron-down job-toggle" id="toggle-7"></i>
+    </div>
+    <div class="job-content" id="content-7">
+        <div class="job-details">
+            <p class="job-description">
+                We are seeking an experienced Clinical Research Coordinator to manage clinical trials from initiation to close-out, ensuring adherence to study protocols and regulatory requirements.
+            </p>
+            <div class="job-section">
+                <h4>Responsibilities:</h4>
+                <ul>
+                    <li>Coordinate daily clinical trial activities.</li>
+                    <li>Screen and enroll participants.</li>
+                    <li>Maintain study documentation and logs.</li>
+                    <li>Communicate with sponsors and IRBs.</li>
+                    <li>Ensure compliance with GCP and protocols.</li>
+                </ul>
+            </div>
+            <div class="job-section">
+                <h4>Requirements:</h4>
+                <ul>
+                    <li>Bachelor’s degree in Life Sciences or related field.</li>
+                    <li>2+ years of experience in clinical research coordination.</li>
+                    <li>Familiarity with ICH-GCP guidelines.</li>
+                    <li>Strong organizational and communication skills.</li>
+                </ul>
+            </div>
+            <button class="apply-btn" onclick="openModal('Clinical Research Coordinator')">
+                Apply Now <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" data-aos="fade-in" data-aos-delay="100">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Reach Out to Us for Clinical Excellence</h2>
+                <p class="cta-description">
+                    Connect with us to embark on a journey towards clinical excellence and transformative healthcare
+                    solutions.
+                </p>
+                <div class="cta-actions">
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <a href="contactus.html" class="btn btn-primary btn-large">
+                        CONTACT US <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - Same as About Us -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">GloGen Clinical Research</div>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="infrastructure.html">Infrastructure</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                        <li><a href="babe.html">Be a Clinical Trial Participant</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="babe.html">BA/BE</a></li>
+                        <li><a href="pk-analysis.html">PK Bioanalysis</a></li>
+                        <li><a href="biostatics.html">Biostatistics & Data Management</a></li>
+                        <li><a href="clinical-trials.html">Clinical Trial Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <div class="contact-info">
+                        <p>5th Floor, The Chennai Silks Building,<br>
+                            Door No. 11-6-72/A&B, Y Junction, Kukatpally,<br>
+                            Hyderabad, Telangana 500072</p>
+                        <p><strong>Phone:</strong> +91 94414 30127, 040-29351774, 040-29321803</p>
+                        <p><strong>Email:</strong> info@glogencro.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 GloGen Clinical Research Pvt Ltd. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Modal -->
+    <div id="applicationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Apply Now</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="applicationForm">
+                    <input type="hidden" id="jobPosition" name="position">
+
+                    <div class="form-group">
+                        <label class="form-label">Your Name*</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Your Email*</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Your Phone Number*</label>
+                        <input type="tel" class="form-control" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Upload Resume*</label>
+                        <input type="file" class="form-control" name="resume" accept=".pdf,.doc,.docx" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('show-menu');
+            });
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY >= 100) {
+                header.classList.add('scroll-header');
+            } else {
+                header.classList.remove('scroll-header');
+            }
+        });
+
+        // Job accordion functionality
+        function toggleJob(jobId) {
+            const content = document.getElementById(`content-${jobId}`);
+            const toggle = document.getElementById(`toggle-${jobId}`);
+
+            // Close all other jobs
+            for (let i = 1; i <= 5; i++) {
+                if (i !== jobId) {
+                    const otherContent = document.getElementById(`content-${i}`);
+                    const otherToggle = document.getElementById(`toggle-${i}`);
+                    if (otherContent && otherToggle) {
+                        otherContent.classList.remove('active');
+                        otherToggle.style.transform = 'rotate(0deg)';
+                    }
+                }
+            }
+
+            // Toggle current job
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                toggle.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('active');
+                toggle.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Modal functionality
+        function openModal(position) {
+            const modal = document.getElementById('applicationModal');
+            const jobPosition = document.getElementById('jobPosition');
+            jobPosition.value = position;
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('applicationModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('applicationModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Form submission
+        document.getElementById('applicationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Here you would typically send the form data to your server
+            alert('Thank you for your application! We will review it and get back to you soon.');
+            closeModal();
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show-menu');
+            });
+        });
+    </script>
+</body>
+
+</html>
